@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="municipalities_array">
+        <item>Beijing, previously romanized as Peking, is the capital city of China. With more than 21.8 million residents, it is the world\'s most populous national capital city, as well as China\'s second-largest city by urban area, after Shanghai. It is located in Northern China and is governed as a provincial-level direct-administered municipality with 16 municipal districts. Beijing is mostly surrounded by Hebei Province and neighbors Tianjin Municipality to the southeast; together, the three divisions form the Jing-Jin-Ji cluster.</item>
+        <item>Shanghai is a provincial-level direct-administered municipality in China. It has a population of 30,050,000 in the urban area as of 2026, thus making it China\'s most populous city and more broadly the fifth-largest city in the world by population. The city is located on the southern estuary of the Yangtze River, with the Huangpu River bisecting the city.</item>
+        <item>Chongqing is a provincial-level direct-administered municipality in Southwestern China. It is one of the four direct-administered municipalities of China and the only one located inland.</item>
+        <item>Tianjin, previously romanized as Tienchin or Tientsin, is a provincial-level direct-administered municipality in China. It is located on the shore of the Bohai Sea. It has a total population of 13,866,009 inhabitants at the 2020 census.</item>
+    </string-array>
+</resources>
