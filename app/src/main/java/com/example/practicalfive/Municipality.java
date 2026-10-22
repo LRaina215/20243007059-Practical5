@@ -1,6 +1,9 @@
 package com.example.practicalfive;
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
 import android.content.res.ColorStateList;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -36,32 +39,37 @@ public class Municipality extends AppCompatActivity {
             return;
         }
 
-        // Select the colour, image and summary index for this municipality.
+        // Select the colour, image, summary index and website for this municipality.
         int colourRes;
         int imageRes;
         int summaryIndex;
+        String website;
 
         switch (municipality) {
             case "Beijing":
                 colourRes = R.color.municipality_beijing;
                 imageRes = R.drawable.beijing;
                 summaryIndex = 0;
+                website = "https://english.beijing.gov.cn/";
                 break;
             case "Shanghai":
                 colourRes = R.color.municipality_shanghai;
                 imageRes = R.drawable.shanghai;
                 summaryIndex = 1;
+                website = "https://english.shanghai.gov.cn/";
                 break;
             case "Chongqing":
                 colourRes = R.color.municipality_chongqing;
                 imageRes = R.drawable.chongqing;
                 summaryIndex = 2;
+                website = "https://english.cq.gov.cn/";
                 break;
             case "Tianjin":
             default:
                 colourRes = R.color.municipality_tianjin;
                 imageRes = R.drawable.tianjin;
                 summaryIndex = 3;
+                website = "https://en.tj.gov.cn/";
                 break;
         }
 
@@ -84,5 +92,17 @@ public class Municipality extends AppCompatActivity {
         Button visitButton = findViewById(R.id.btnVisitSite);
         visitButton.setBackgroundTintList(ColorStateList.valueOf(colour));
         visitButton.setTextColor(lightText);
+
+        final String url = website;
+        visitButton.setOnClickListener(v -> openWebsite(url));
+    }
+
+    private void openWebsite(String url) {
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        try {
+            startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(this, "No app is available to open the website", Toast.LENGTH_SHORT).show();
+        }
     }
 }
