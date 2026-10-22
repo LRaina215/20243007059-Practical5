@@ -33,7 +33,10 @@
         android:text="I want to know about:"
         android:textColor="@color/color_text_dark"
         android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        />
 
     <EditText
         android:id="@+id/etMunicipality"

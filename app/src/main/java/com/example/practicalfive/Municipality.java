@@ -1,6 +1,11 @@
 package com.example.practicalfive;
 
+import android.content.res.ColorStateList;
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,5 +25,64 @@ public class Municipality extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        // Retrieve and validate the name passed from MainActivity.
+        String municipality = TextProcessor.processMunicipality(
+                getIntent().getStringExtra(MainActivity.EXTRA_MUNICIPALITY));
+
+        if (municipality == null) {
+            Toast.makeText(this, "No valid municipality was supplied", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
+
+        // Select the colour, image and summary index for this municipality.
+        int colourRes;
+        int imageRes;
+        int summaryIndex;
+
+        switch (municipality) {
+            case "Beijing":
+                colourRes = R.color.municipality_beijing;
+                imageRes = R.drawable.beijing;
+                summaryIndex = 0;
+                break;
+            case "Shanghai":
+                colourRes = R.color.municipality_shanghai;
+                imageRes = R.drawable.shanghai;
+                summaryIndex = 1;
+                break;
+            case "Chongqing":
+                colourRes = R.color.municipality_chongqing;
+                imageRes = R.drawable.chongqing;
+                summaryIndex = 2;
+                break;
+            case "Tianjin":
+            default:
+                colourRes = R.color.municipality_tianjin;
+                imageRes = R.drawable.tianjin;
+                summaryIndex = 3;
+                break;
+        }
+
+        int colour = getColor(colourRes);
+        int lightText = getColor(R.color.color_text_light);
+        String[] summaries = getResources().getStringArray(R.array.municipalities_array);
+
+        TextView nameView = findViewById(R.id.tvName);
+        nameView.setText(municipality);
+        nameView.setTextColor(lightText);
+        nameView.setBackgroundColor(colour);
+
+        ImageView imageView = findViewById(R.id.ivMunicipality);
+        imageView.setImageResource(imageRes);
+
+        TextView infoView = findViewById(R.id.tvInfo);
+        infoView.setText(summaries[summaryIndex]);
+        infoView.setTextColor(colour);
+
+        Button visitButton = findViewById(R.id.btnVisitSite);
+        visitButton.setBackgroundTintList(ColorStateList.valueOf(colour));
+        visitButton.setTextColor(lightText);
     }
 }
