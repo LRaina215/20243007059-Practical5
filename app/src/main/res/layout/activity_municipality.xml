@@ -16,7 +16,6 @@
         android:textSize="24sp"
         android:textStyle="bold"
         android:gravity="center"
-        android:padding="16dp"
         />
     
     <ImageView
@@ -50,6 +49,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:text="Visit site"
+        android:textSize="24sp"
         />
 
 </LinearLayout>
