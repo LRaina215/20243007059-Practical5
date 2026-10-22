@@ -9,21 +9,28 @@
     android:orientation="vertical"
     >
     <TextView
+        android:id="@+id/tvName"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"
+        android:layout_weight="1"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="16dp"
         />
     
     <ImageView
+        android:id="@+id/ivMunicipality"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="10"
+        android:layout_weight="5"
+        android:scaleType="centerCrop"
         />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="5"
         android:fillViewport="true">
 
         <TextView
@@ -31,15 +38,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="16sp"
-            android:lineSpacingExtra="4dp" />
+            android:lineSpacingExtra="4dp"
+            android:gravity="center"
+            />
 
     </ScrollView>
 
     <Button
+        android:id="@+id/btnVisitSite"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="Visit Site"
+        android:text="Visit site"
         />
 
 </LinearLayout>
